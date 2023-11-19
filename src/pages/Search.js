@@ -1,10 +1,13 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, TextField, Typography } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import Navbar from "../common/components/Navbar";
-import SearchBar from "material-ui-search-bar";
+// import SearchBar from "material-ui-search-bar";
 import ImageGallery from "../common/components/ImageGallery";
 import { useDispatch } from "react-redux";
 import { searchImages } from "../common/store/slice/search";
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
 function Search() {
   const [search, setSearch] = useState("");
@@ -33,6 +36,11 @@ function Search() {
     setCancelClicked(true);
   };
 
+  const handleSearch = (event) => {
+    const searchTerm = event.target.value;
+    setSearch(searchTerm);
+  };
+
   return (
     <div>
       <Container>
@@ -40,20 +48,44 @@ function Search() {
       </Container>
 
       <Container>
-        <SearchBar
+        {/* <SearchBar
           value={search}
           onChange={(newValue) => {
             setCancelClicked(false);
             setSearch(newValue);
           }}
           onCancelSearch={handleCancel}
+        /> */}
+
+        <TextField
+          label="Search"
+          variant="outlined"
+          size="small"
+          fullWidth
+          onChange={handleSearch}
+          InputProps={{
+            endAdornment: (
+              <IconButton>
+                {
+                  search !== "" ? <CancelOutlinedIcon /> : <SearchIcon />
+                }
+              </IconButton>
+            ),
+          }}
         />
 
         {!cancelClicked && search && <ImageGallery from="searchImages" />}
 
-        {search == "" && <Box display="flex" alignItems="center" justifyContent="center" mt={10}>
+        {search == "" && (
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            mt={10}
+          >
             <Typography>Type something to search images.</Typography>
-          </Box>}
+          </Box>
+        )}
       </Container>
     </div>
   );

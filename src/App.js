@@ -6,6 +6,7 @@ import {
 import Random from './pages/Random';
 import Search from './pages/Search';
 import Liked from './pages/Liked';
+import ImageDetails from './pages/ImageDetails';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,12 @@ const router = createBrowserRouter([
     path:"liked",
     element:(
       <Liked/>
+    )
+  },
+  {
+    path:"images/:id",
+    element:(
+      <ImageDetails/>
     )
   }
 ]);

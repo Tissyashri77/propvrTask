@@ -8,22 +8,24 @@ function Navbar() {
 
   return (
     <Box width="100%" height={80} display="flex" alignItems="center" justifyContent="flex-end">
-        <Box display="flex" flexDirection="row" gap={5}>
+        <Box display="flex" flexDirection="row" sx={{gap:{xs:3,md:4}}}>
             <Link to="/" style={{
                 color:"inherit",
                 fontWeight:"500",
                 textDecoration: currentPath === "/" ? "underline" : "none"
-            }}>Random Images</Link>
+            }}>
+                <Typography sx={{fontSize:{xs:"12px", md:"16px"},fontWeight:"500"}}>Random Images</Typography>
+            </Link>
             <Link to="/search" style={{
                 color:"inherit",
                 fontWeight:"500",
                 textDecoration: currentPath === "/search" ? "underline" : "none"
-            }}>Search Images</Link>
+            }}><Typography sx={{fontSize:{xs:"12px", md:"16px"},fontWeight:"500"}}>Search Images</Typography></Link>
             <Link to="/liked" style={{
                 color:"inherit",
                 fontWeight:"500",
                 textDecoration: currentPath === "/liked" ? "underline" : "none"
-            }}>Liked Images</Link>
+            }}><Typography sx={{fontSize:{xs:"12px", md:"16px"},fontWeight:"500"}}>Liked Images</Typography></Link>
         </Box>
     </Box>
   )

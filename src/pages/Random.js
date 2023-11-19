@@ -34,7 +34,7 @@ function Random() {
 
       {!randomImagesLoading && (
         <Box display="flex" alignItems="center" justifyContent="center" mb={4} mt={4}>
-          <Pagination size="medium" count={20} page={page} onChange={(event, value) => {
+          <Pagination size="small" count={10} page={page} onChange={(event, value) => {
             setPage(value)
           }}/>
         </Box>

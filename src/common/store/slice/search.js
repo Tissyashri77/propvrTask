@@ -3,21 +3,27 @@ import { createApi } from "unsplash-js";
 
 export const searchImages = createAsyncThunk(
     "searchImages",
-    async ({query, pageNo}) => {
+    async ({query}) => {
+        console.log(query);
         const unsplash = createApi({
-            accessKey: "JpEiPI4RJUCRCEwQ-bJcKptgpzDOrCefK8TbN_K7FzM",
+            accessKey: process.env.REACT_APP_ACCESS_TOKEN,
           });
       
           let searchDatas = []
 
-          await unsplash.search.getPhotos({query: query,page:pageNo,perPage:30}).then((result) => {
-            if (result.errors) {
-              console.log("error occurred: ", result.errors[0]);
+          try {
+            const response = await unsplash.search.getPhotos({ query, perPage:30 });
+            
+            if (response.errors) {
+              console.log("Error occurred:", response.errors[0]);
             } else {
-              const searchResults = result.response;
-              searchDatas = searchDatas.concat(searchResults)
+              const searchResults = response.response.results; // Adjust 'results' based on the actual property name
+              searchDatas = searchDatas.concat(searchResults);
             }
-          });
+          } catch (error) {
+            console.error("Error fetching images:", error);
+          }
+        
       
           return searchDatas;
     }
@@ -29,7 +35,6 @@ const searchSlice = createSlice({
         isLoading: false,
         data:[],
         isError:false,
-        pages:0,
     },
     extraReducers: (builder) => {
         builder.addCase(searchImages.pending, (state, action) => {
@@ -39,8 +44,7 @@ const searchSlice = createSlice({
         builder.addCase(searchImages.fulfilled, (state, action) => {
             state.isLoading = false;
             console.log(action.payload);
-            state.data = [...state.data, ...action.payload[0].results]
-            state.pages = Math.floor(action.payload[0].total_pages / 30)
+            state.data = action.payload
         })
 
         builder.addCase(searchImages.rejected, (state, action) => {

@@ -3,11 +3,12 @@ import { createApi } from "unsplash-js";
 
 export const fetchRandomImages = createAsyncThunk(
   "fetchRandomImages",
-  async () => {
+  async (page) => {
     const unsplash = createApi({
-      accessKey: "JpEiPI4RJUCRCEwQ-bJcKptgpzDOrCefK8TbN_K7FzM",
+      accessKey: process.env.REACT_APP_ACCESS_TOKEN,
     });
 
+    console.log(page);
     let images = []
 
     await unsplash.photos.getRandom({ count: 30 }).then((result) => {

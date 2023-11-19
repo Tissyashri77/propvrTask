@@ -312,7 +312,7 @@ function ImageDetails() {
         <Alert
           severity="success"
           color="info"
-          sx={{ position: "absolute", bottom: 10, left: 20 }}
+          sx={{ position: "absolute", bottom: {xs:-200,md:10}, left: 20 }}
         >
           Link Copied successfully 🤩
         </Alert>

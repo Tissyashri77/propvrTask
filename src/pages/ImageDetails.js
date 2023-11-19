@@ -13,7 +13,6 @@ import Navbar from "../common/components/Navbar";
 import { fetchImageDetails } from "../common/store/slice/image";
 import { VscEye } from "react-icons/vsc";
 import { IoHeartOutline, IoStarSharp } from "react-icons/io5";
-import Clipboard from "react-clipboard.js";
 import { IoMdDownload } from "react-icons/io";
 import { GoShare } from "react-icons/go";
 import Tooltip from "@mui/material/Tooltip";
@@ -214,27 +213,6 @@ function ImageDetails() {
                   <Typography fontSize={14}>
                     {image.likes.toLocaleString()} likes
                   </Typography>
-                </Box>
-
-                <Box width="50%" mt={2}>
-                  <Typography fontSize={14} fontWeight="500">
-                    Link:
-                  </Typography>
-                  <Clipboard
-                    data-clipboard-text="I'll be copied"
-                    button-title="I'm a tooltip"
-                    onSuccess={clipboardcopysuccess}
-                    style={{
-                      border: "none",
-                      padding: "10px",
-                      marginTop: "4px",
-                      width: "100%",
-                      cursor: "pointer",
-                      borderRadius: "4px",
-                    }}
-                  >
-                    Copy Link
-                  </Clipboard>
                 </Box>
 
                 <Box mt={2}>

@@ -5,9 +5,9 @@ import Navbar from "../common/components/Navbar";
 import ImageGallery from "../common/components/ImageGallery";
 import { useDispatch } from "react-redux";
 import { searchImages } from "../common/store/slice/search";
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
-import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 
 function Search() {
   const [search, setSearch] = useState("");
@@ -59,17 +59,25 @@ function Search() {
 
         <TextField
           label="Search"
-          variant="outlined"
+          variant="filled"
           size="small"
           fullWidth
+          value={search}
           onChange={handleSearch}
           InputProps={{
             endAdornment: (
-              <IconButton>
-                {
-                  search !== "" ? <CancelOutlinedIcon /> : <SearchIcon />
-                }
-              </IconButton>
+              <Box mt={1}>
+                {search !== "" ? (
+                  <IconButton sx={{marginTop:"-10px"}} onClick={() => {
+                    setSearch("")
+                    setCancelClicked(true)
+                  }}>
+                    <CancelOutlinedIcon />
+                  </IconButton>
+                ) : (
+                  <SearchIcon />
+                )}
+              </Box>
             ),
           }}
         />

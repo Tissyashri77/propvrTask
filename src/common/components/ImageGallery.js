@@ -72,7 +72,7 @@ function ImageGallery({from}) {
     );
   }
 
-  if(images.length == 0 && !loading && !error ){
+  if(images && images.length == 0 && !loading && !error ){
     return(
       <Box display="flex" alignItems="center" justifyContent="center" mt={10}><Typography>No Images Found</Typography></Box>
     )

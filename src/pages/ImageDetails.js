@@ -45,10 +45,12 @@ function ImageDetails() {
   useEffect(() => {
     if(!imageLoading && image){
       const data = (JSON.parse(localStorage.getItem('liked')));
-      const liked = data.find(function(item){
-        return item.id === image.id
-      })
-      liked && setLiked(true)
+      if(data){
+        const liked = data.find(function(item){
+          return item.id === image.id
+        })
+        liked && setLiked(true)
+      }
     }
   },[imageLoading, liked])
 

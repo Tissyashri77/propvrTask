@@ -1,7 +1,6 @@
 import { Box, Container, TextField, Typography } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import Navbar from "../common/components/Navbar";
-// import SearchBar from "material-ui-search-bar";
 import ImageGallery from "../common/components/ImageGallery";
 import { useDispatch } from "react-redux";
 import { searchImages } from "../common/store/slice/search";

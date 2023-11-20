@@ -11,7 +11,7 @@ function Liked() {
         </Container>
 
         <Container>
-          <Typography variant='h5' fontWeight="700">Liked Images:</Typography>
+          <Typography variant='h5' fontWeight="700">Saved Images:</Typography>
 
           <ImageGallery from="liked"/>
         </Container>

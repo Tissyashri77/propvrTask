@@ -254,7 +254,7 @@ function ImageDetails() {
                       </RWebShare>
                     </Tooltip>
 
-                    <Tooltip title={liked ? "Liked" : "Like"}>
+                    <Tooltip title={liked ? "Saved" : "Save"}>
                       <Box
                         padding={2}
                         bgcolor="#eee"

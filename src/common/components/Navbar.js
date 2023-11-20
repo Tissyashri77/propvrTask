@@ -25,7 +25,7 @@ function Navbar() {
                 color:"inherit",
                 fontWeight:"500",
                 textDecoration: currentPath === "/liked" ? "underline" : "none"
-            }}><Typography sx={{fontSize:{xs:"12px", md:"16px"},fontWeight:"500"}}>Liked Images</Typography></Link>
+            }}><Typography sx={{fontSize:{xs:"12px", md:"16px"},fontWeight:"500"}}>Saved Images</Typography></Link>
         </Box>
     </Box>
   )

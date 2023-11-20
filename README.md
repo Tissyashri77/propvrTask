@@ -1,4 +1,4 @@
-# PROP VR TASK OR SQUARE YARDS YARDS
+# SquareYards Assignment Task 
 
 This is a React application that allows users to view random images, search for images by keyword, view image details, download selected images, and share them. The application uses the Unsplash API for fetching image data.
 

@@ -39,7 +39,7 @@ Before running the application, you need to create a developer account on Unspla
 
 ## Features
 
-1. Random Images on Index Page
+1. Random Images on Index Page with pagination.
 2. Image Search
 3. Dynamic Route for Image Details
 4. Image Download

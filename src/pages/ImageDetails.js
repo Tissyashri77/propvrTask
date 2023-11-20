@@ -91,13 +91,6 @@ function ImageDetails() {
     );
   }
 
-  const clipboardcopysuccess = () => {
-    setShow(true);
-
-    setTimeout(() => {
-      setShow(false);
-    }, 1000);
-  };
 
   function toDataURL(url) {
     return fetch(url)
